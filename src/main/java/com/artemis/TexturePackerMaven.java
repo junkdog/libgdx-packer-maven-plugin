@@ -74,6 +74,7 @@ public class TexturePackerMaven extends AbstractMojo {
 				outputDirectory.toString(),
 				packName);
 		
+		getLog().info("Spritesheet(s) written.");
 	}
 
 
