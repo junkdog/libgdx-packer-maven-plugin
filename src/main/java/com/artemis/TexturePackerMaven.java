@@ -68,13 +68,18 @@ public class TexturePackerMaven extends AbstractMojo {
 		Settings settings = new Settings();
 		injectSettings(settings);
 		
-		TexturePacker.process(
-				settings,
-				root.toString(),
-				outputDirectory.toString(),
-				packName);
-		
-		getLog().info("Spritesheet(s) written.");
+		try {
+			TexturePacker.process(
+					settings,
+					root.toString(),
+					outputDirectory.toString(),
+					packName);
+			
+			getLog().info("Spritesheet(s) written.");
+		} catch (Exception e) {
+			getLog().error(e);
+			throw new RuntimeException(e);
+		}
 	}
 
 
